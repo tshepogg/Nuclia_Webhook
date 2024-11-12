@@ -1,0 +1,17 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    environment:
+      - NUCLIA_API_KEY=${NUCLIA_API_KEY}
+      - NUCLIA_KB_ID=${NUCLIA_KB_ID}
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
