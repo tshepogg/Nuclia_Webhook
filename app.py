@@ -12,6 +12,8 @@ if not API_KEY or not KB_ID:
 # Base URL for your Knowledge Box
 BASE_URL = f'https://{KB_ID}.nuclia.cloud/api/v1'
 
+BASE_URL = f'https://europe-1.nuclia.cloud/api/v1/kb/903a0322-3d77-4ec3-94fd-3a10021c9500'
+
 # Headers for authentication
 HEADERS = {
     'Authorization': f'Bearer {API_KEY}',
