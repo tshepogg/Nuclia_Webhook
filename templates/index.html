@@ -1,0 +1,27 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abby - AI Assistant</title>
+    <script>
+        async function askQuestion() {
+            const query = document.getElementById('query').value;
+            const response = await fetch('/api/search', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query })
+            });
+            const result = await response.json();
+            document.getElementById('response').innerText = result.text || JSON.stringify(result);
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to Abby - Your AI Assistant</h1>
+    <input type="text" id="query" placeholder="Enter your question">
+    <button onclick="askQuestion()">Ask Abby</button>
+    <div id="response"></div>
+</body>
+</html>
