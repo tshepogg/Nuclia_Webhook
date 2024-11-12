@@ -10,13 +10,11 @@ if not API_KEY or not KB_ID:
     raise ValueError("Please set the NUCLIA_API_KEY and NUCLIA_KB_ID environment variables.")
 
 # Base URL for your Knowledge Box
-BASE_URL = f'https://{KB_ID}.nuclia.cloud/api/v1'
-
-BASE_URL = f'https://europe-1.nuclia.cloud/api/v1/kb/903a0322-3d77-4ec3-94fd-3a10021c9500'
+BASE_URL = f'https://europe-1.nuclia.cloud/api/v1/kb/{KB_ID}'
 
 # Headers for authentication
 HEADERS = {
-    'Authorization': f'Bearer {API_KEY}',
+    'X-NUCLIA-SERVICEACCOUNT': f'Bearer {API_KEY}',
     'Content-Type': 'application/json'
 }
 
